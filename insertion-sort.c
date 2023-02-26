@@ -3,7 +3,13 @@
  * Author: Juan Diego Becerra
  *
  * Description: This program performs insertion sort on a given file with
- * comma-separated values.
+ * comma-separated values. Below are the general steps followed by said algorithm:
+ * 
+ * 1. Set marker to delimit the sorted/unsorted section of the array after the first element.
+ * 2. Repeat the following until unsorted section is empty:
+ *  2.1. Select first unsorted element
+ *  2.2. Put element into correct position
+ *  2.3. Set delimiter to the next unsorted element 
  */
 
 #include <stdio.h>
@@ -71,9 +77,9 @@ void sort(int arr[], int n)
 /**
  * It swaps two elements in an array.
  *
- * @param arr The array to be sorted
- * @param i the index of the first element to swap
- * @param j the index of the second element to swap
+ * @param arr Array of integers
+ * @param i Index of the first element to swap
+ * @param j Index of the second element to swap
  */
 void swap(int arr[], int i, int j)
 {
