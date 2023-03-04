@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-#define MAX_NUMBERS 1000
+#define MAX_SIZE 1000
 
 void sort(int arr[], int n);
 void swap(int arr[], int i, int j);
@@ -22,7 +22,7 @@ void swap(int arr[], int i, int j);
 int main(int argc, char *argv[])
 {
     FILE *fp;
-    int arr[MAX_NUMBERS];
+    int arr[MAX_SIZE];
     int n = 0;
 
     if (argc != 2)
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    while (n < MAX_NUMBERS && fscanf(fp, "%d,", &arr[n]) == 1)
+    while (n < MAX_SIZE && fscanf(fp, "%d,", &arr[n]) == 1)
     {
         n++;
     }

@@ -14,7 +14,7 @@
 
 #include <stdio.h>
 
-#define MAX_NUMBERS 1000
+#define MAX_SIZE 1000
 
 #define LEFT(i) (2 * (i + 1)) - 1
 #define RIGHT(i) (LEFT(i) + 1)
@@ -30,7 +30,7 @@ void heapify(int *, int, int);
 int main(int argc, char *argv[])
 {
     FILE *fp;
-    int arr[MAX_NUMBERS];
+    int arr[MAX_SIZE];
     int n = 0;
 
     if (argc != 2)
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    while (n < MAX_NUMBERS && fscanf(fp, "%d,", &arr[n]) == 1)
+    while (n < MAX_SIZE && fscanf(fp, "%d,", &arr[n]) == 1)
     {
         n++;
     }
