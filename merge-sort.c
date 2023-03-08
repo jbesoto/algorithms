@@ -49,7 +49,6 @@ int main(int argc, char *argv[])
     }
 
     sort(arr, n);
-
     print_array(arr, n);
 
     return 0;
@@ -124,11 +123,14 @@ void merge(int arr[], int left[], int right[], int size_left, int size_right)
  */
 void print_array(int arr[], int n)
 {
-    int i;
     printf("[");
-    for (i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("%d, ", arr[i]);
+        printf("%d", arr[i]);
+        if (i < n - 1)
+        {
+            printf(", ");
+        }
     }
-    printf("%d]\n", arr[i++]);
+    printf("]\n");
 }

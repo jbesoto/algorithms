@@ -31,7 +31,7 @@ int select(int *, int, int);
 int main(int argc, char *argv[])
 {
     FILE *fp;
-    int arr[MAX_SIZE];
+    int k, arr[MAX_SIZE];
     int n = 0;
 
     if (argc != 2)
@@ -52,8 +52,11 @@ int main(int argc, char *argv[])
         n++;
     }
 
-    int kth = select(arr, 24, n);
-    printf("%d\n", kth);
+    k = 24;
+    int res = select(arr, k, n);
+    printf("%d\n", res);
+
+    return 0;
 }
 
 /**
@@ -235,11 +238,14 @@ int select(int arr[], int k, int n)
  */
 void print_array(int arr[], int n)
 {
-    int i;
     printf("[");
-    for (i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("%d, ", arr[i]);
+        printf("%d", arr[i]);
+        if (i < n - 1)
+        {
+            printf(", ");
+        }
     }
-    printf("%d]\n", arr[i++]);
+    printf("]\n");
 }

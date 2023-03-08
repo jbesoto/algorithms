@@ -21,11 +21,10 @@
 #define PARENT(i) (i >> 1)
 #define MAX(a, b) (a >= b ? a : b)
 
-void print_array(int *, int);
-void build_heap(int *, int);
-void swap(int *, int, int);
 void sort(int *, int);
 void heapify(int *, int, int);
+void swap(int *, int, int);
+void print_array(int *, int);
 
 int main(int argc, char *argv[])
 {
@@ -52,8 +51,9 @@ int main(int argc, char *argv[])
     }
 
     sort(arr, n);
-
     print_array(arr, n);
+    
+    return 0;
 }
 
 /**
@@ -64,7 +64,11 @@ int main(int argc, char *argv[])
  */
 void sort(int arr[], int n)
 {
-    build_heap(arr, n);
+    // Build heap array
+    for (int i = (n >> 1) - 1; i >= 0; i--)
+    {
+        heapify(arr, i, n);
+    }
 
     // Recursively sort the heap
     const int root = 0;
@@ -106,28 +110,6 @@ void heapify(int arr[], int i, int n)
 }
 
 /**
- * Organizes a given array of integers into a heap.
- *
- * By definition, a heap fulfills the following conditions:
- *  1. Its internal nodes have 1-2 children
- *  2. Parent node is greater than its children
- *  3. All levels (except for the leaf level) are filled
- *
- * @param arr Array to build the heap from
- * @param n Size of the array
- */
-void build_heap(int arr[], int n)
-{
-    for (int i = (n >> 1) - 1; i >= 0; i--)
-    {
-        if (arr[i] < MAX(arr[LEFT(i)], arr[RIGHT(i)]))
-        {
-            heapify(arr, i, n);
-        }
-    }
-}
-
-/**
  * It swaps two elements in an array.
  *
  * @param arr Array of integers
@@ -149,11 +131,14 @@ void swap(int arr[], int i, int j)
  */
 void print_array(int arr[], int n)
 {
-    int i;
     printf("[");
-    for (i = 0; i < n - 1; i++)
+    for (int i = 0; i < n; i++)
     {
-        printf("%d, ", arr[i]);
+        printf("%d", arr[i]);
+        if (i < n - 1)
+        {
+            printf(", ");
+        }
     }
-    printf("%d]\n", arr[i++]);
+    printf("]\n");
 }

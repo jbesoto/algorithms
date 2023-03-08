@@ -4,20 +4,21 @@
  *
  * Description: This program performs insertion sort on a given file with
  * comma-separated values. Below are the general steps followed by said algorithm:
- * 
+ *
  * 1. Set marker to delimit the sorted/unsorted section of the array after the first element.
  * 2. Repeat the following until unsorted section is empty:
  *  2.1. Select first unsorted element
  *  2.2. Put element into correct position
- *  2.3. Set delimiter to the next unsorted element 
+ *  2.3. Set delimiter to the next unsorted element
  */
 
 #include <stdio.h>
 
 #define MAX_SIZE 1000
 
-void sort(int arr[], int n);
-void swap(int arr[], int i, int j);
+void sort(int *, int);
+void swap(int *, int, int);
+void print_array(int *, int);
 
 int main(int argc, char *argv[])
 {
@@ -44,14 +45,9 @@ int main(int argc, char *argv[])
     }
 
     sort(arr, n);
+    print_array(arr, n);
 
-    int i;
-    printf("[");
-    for (i = 0; i < n - 1; i++)
-    {
-        printf("%d, ", arr[i]);
-    }
-    printf("%d]\n", arr[i++]);
+    return 0;
 }
 
 /**
@@ -86,4 +82,24 @@ void swap(int arr[], int i, int j)
     int tmp = arr[i];
     arr[i] = arr[j];
     arr[j] = tmp;
+}
+
+/**
+ * It prints an array of integers.
+ *
+ * @param arr Array to be printed
+ * @param n Lenght of the array
+ */
+void print_array(int arr[], int n)
+{
+    printf("[");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d", arr[i]);
+        if (i < n - 1)
+        {
+            printf(", ");
+        }
+    }
+    printf("]\n");
 }
