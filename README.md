@@ -7,12 +7,12 @@ The motivation behind this project was to solidify my understanding of algorithm
 
 ## List of Algorithms
 Below is the list of algorithms that are implemented in this repository:
-- [ ]  Insertion sort  
-- [ ]  Merge sort  
-- [ ]  Counting sort  
-- [ ]  Radix sort  
-- [ ]  Heap sort  
-- [ ]  Deterministic selection  
+- [x]  Insertion sort  
+- [x]  Merge sort  
+- [x]  Counting sort  
+- [x]  Radix sort  
+- [x]  Heap sort  
+- [x]  Deterministic selection  
 - [ ]  QuickSort
 - [ ]  BFS
 - [ ]  DFS
