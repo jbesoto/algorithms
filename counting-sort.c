@@ -24,35 +24,31 @@
 #define ALPHABET_SIZE 26
 
 void print_array(int *, int);
-char* sort(char *);
+void sort(char *);
 
 int main(int argc, char *argv[])
 {
-    char *s;
-
     if (argc != 2)
     {
         printf("Usage: ./counting-sort string\n");
         return 1;
     }
 
-    s = argv[1];
-    char *res = sort(s);
+    char *str = argv[1];
+    sort(str);
+    printf("%s\n", str);
 
-    printf("%s\n", res);
-
-    free(res);
     return 0;
 }
 
 /**
- * Sorts a string in lexicographical order using counting sort algorithm.
+ * Sorts (stable) a string lexicographically using counting sort algorithm.
  *
  * @param s The string to be sorted
  *
  * @return A pointer to the sorted string.
  */
-char* sort(char *s)
+void sort(char *s)
 {
     int i, j, n, count[ALPHABET_SIZE];
     char *new;
@@ -74,7 +70,7 @@ char* sort(char *s)
     }
 
     // Put characters in sorted array of characters
-    for (i = 0; i < n; i++)
+    for (i = n - 1; i >= 0; i--)
     {
         j = count[s[i] - 'a'] - 1;
         if (j >= 0)
@@ -85,5 +81,6 @@ char* sort(char *s)
     }
     new[i] = '\0';
 
-    return new;
+    strncpy(s, new, n);
+    free(new);
 }
